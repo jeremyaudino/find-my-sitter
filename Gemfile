@@ -6,7 +6,7 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 
 group :development, :test do
   gem 'sqlite3'
-els	
+else	
   gem 'pg'
 end
 
