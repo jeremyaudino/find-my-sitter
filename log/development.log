@@ -1,0 +1,30 @@
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateSitters (20170430145841)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "sitters" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "city" varchar, "state" varchar, "mobile_number" varchar, "rate" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170430145841"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-04-30 14:59:10 UTC], ["updated_at", 2017-04-30 14:59:10 UTC]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/sitters" for ::1 at 2017-04-30 11:00:47 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SittersController#index as HTML
+  Rendering sitters/index.html.erb within layouts/application
+  [1m[36mSitter Load (0.2ms)[0m  [1m[34mSELECT "sitters".* FROM "sitters"[0m
+  Rendered sitters/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 457ms (Views: 446.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/sitters/new" for ::1 at 2017-04-30 11:00:54 -0400
+Processing by SittersController#new as HTML
+  Rendering sitters/new.html.erb within layouts/application
+  Rendered sitters/_form.html.erb (18.1ms)
+  Rendered sitters/new.html.erb within layouts/application (22.8ms)
+Completed 200 OK in 54ms (Views: 44.1ms | ActiveRecord: 0.6ms)
+
+
